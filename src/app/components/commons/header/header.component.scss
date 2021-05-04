@@ -1,0 +1,10 @@
+.mat-toolbar-single-row {
+    justify-content: center;
+    background: red;
+    .logo-header-container{
+        height: 64px;
+        .logo-header-image {
+            height: inherit;
+        }
+    }
+}
