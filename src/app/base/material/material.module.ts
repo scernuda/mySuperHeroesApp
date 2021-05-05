@@ -21,6 +21,7 @@ import { MatCardModule } from '@angular/material/card';
 import {MatToolbarModule} from '@angular/material/toolbar';
 import {MatTooltipModule} from '@angular/material/tooltip';
 import {MatNativeDateModule, MatRippleModule} from '@angular/material/core';
+import {MatSnackBarModule} from '@angular/material/snack-bar';
 
 const MATERIAL_MODULES = [
   MatRippleModule,
@@ -38,7 +39,8 @@ const MATERIAL_MODULES = [
   MatSlideToggleModule,
   MatCardModule,
   MatToolbarModule,
-  MatTooltipModule
+  MatTooltipModule,
+  MatSnackBarModule
 ];
 
 @NgModule({

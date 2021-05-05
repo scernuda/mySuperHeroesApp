@@ -1,5 +1,6 @@
 // Core Imports.
 import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
+import { formatDate } from '@angular/common' 
 
 // Router Imports.
 import { ActivatedRoute, Router } from '@angular/router';
@@ -9,6 +10,9 @@ import { Hero } from '../../../base/types/hero';
 
 // Angular forms Imports.
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+
+// Mat MatSnackBar.
+import {MatSnackBar} from '@angular/material/snack-bar';
 
 // Services.
 import { DetailService } from './service/detail.service';
@@ -36,7 +40,8 @@ export class DetailComponent implements OnInit {
   constructor(private fb: FormBuilder,
     public activatedRoute: ActivatedRoute,
     private router: Router,
-    private detailService: DetailService,) {
+    private detailService: DetailService,
+    private snackBar: MatSnackBar) {
     this.createForm(); // Call action form init method.
   }
 
@@ -133,12 +138,16 @@ export class DetailComponent implements OnInit {
         // Call hero service for create.
         this.detailService.update(this.hero);
         this.navigateToHeroes(); // go hero table.
-
+        this.snackBar.open(this.hero.alias + ' Ha sido editado con éxito', 'X', {
+          duration: 3000
+        });
       } else {
         // Call hero service for create.
         this.detailService.create(this.hero);
         this.navigateToHeroes(); // go hero table.
-
+        this.snackBar.open(this.hero.alias + ' Ha sido creado con éxito', 'X', {
+          duration: 3000
+        });
       }
     }
   }
@@ -198,7 +207,7 @@ export class DetailComponent implements OnInit {
     }
 
     if (this.formHero.controls.birthDate.value) {
-      hero.birthDate = this.formHero.controls.birthDate.value;
+      hero.birthDate = this.formHero.controls.birthDate.value ;
     }
 
     if (this.formHero.controls.race.value) {
@@ -255,6 +264,7 @@ export class DetailComponent implements OnInit {
     this.formHero.controls.name.setValue(hero.name);
     this.formHero.controls.numberOfMovies.setValue(hero.numberOfMovies);
     this.formHero.controls.race.setValue(hero.race);
+    this.formHero.controls.birthDate.setValue(hero.birthDate);
     this.formHero.controls.urlImage.setValue(hero.urlImage);
   }
 }

@@ -10,6 +10,9 @@ import { MatPaginator } from '@angular/material/paginator';
 // Mat dialog.
 import { MatDialog } from '@angular/material/dialog';
 
+// Mat MatSnackBar.
+import {MatSnackBar} from '@angular/material/snack-bar';
+
 // Types import.
 import { Hero } from '../../../base/types/hero';
 
@@ -39,7 +42,7 @@ export class ListComponent {
   dataSource = new MatTableDataSource();
 
 
-  constructor(private router: Router, private listService: ListService, private dialog: MatDialog,) {
+  constructor(private router: Router, private listService: ListService, private dialog: MatDialog, private snackBar: MatSnackBar) {
     // Call the service to load promotions table datasource.
     this.heroes = this.listService.getHeroes();
     this.dataSource = new MatTableDataSource(this.heroes);
@@ -52,11 +55,25 @@ export class ListComponent {
 
   applyFilter(event: Event) {
     const filterValue = (event.target as HTMLInputElement).value;
-    this.dataSource.filter = filterValue.trim().toLowerCase();
+
+    this.heroes = this.listService.list(filterValue)
+    this.dataSource = new MatTableDataSource(this.heroes);
 
     if (this.dataSource.paginator) {
       this.dataSource.paginator.firstPage();
     }
+  }
+
+   /**
+  * simulateLoader.
+  *
+  * Method send an http request to simulate loader.
+  *
+  * @since 1.0.0
+  * @access public
+  */
+  simulateLoader(){
+    this.listService.simulateLoader();
   }
 
   /**
@@ -97,6 +114,9 @@ export class ListComponent {
     dialogRef.afterClosed().subscribe((result) => {
       if (result) {
         this.deleteHero(hero);
+        this.snackBar.open(hero.alias + ' Ha sido borrado con éxito', 'X', {
+          duration: 2000
+        });
       }
     });
   }

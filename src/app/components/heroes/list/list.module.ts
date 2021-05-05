@@ -1,6 +1,7 @@
 // Core Imports
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { HttpClientModule } from '@angular/common/http';
 
 // Router Imports.
 import { ListComponent } from './list.component';
@@ -15,7 +16,7 @@ const LIST_COMPONENTS = [ListComponent]; // Set the array of componets
 
 @NgModule({
   declarations: [...LIST_COMPONENTS],
-  imports: [ListRoutingModule, BaseModule,BrowserModule],
+  imports: [ListRoutingModule, BaseModule,BrowserModule,HttpClientModule,],
   providers: [],
   bootstrap: []
 })

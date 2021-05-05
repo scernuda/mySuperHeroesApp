@@ -9,6 +9,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FormModule } from './form/form.module';
 import { ApiModule } from './api/api.module';
 import { HeroesConfirmDialogModule } from './heroes-confirm-dialog/heroes-confirm-dialog.module';
+import { LoaderModule } from './loader/loader.module';
 
 const BASE_MODULES = [
   ApiModule,
@@ -16,7 +17,8 @@ const BASE_MODULES = [
   MaterialModule,
   FlexLayoutModule,
   BrowserAnimationsModule,
-  HeroesConfirmDialogModule
+  HeroesConfirmDialogModule,
+  LoaderModule
 ];
 
 @NgModule({
