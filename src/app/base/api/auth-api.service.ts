@@ -1,6 +1,5 @@
 // Core Imports
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
 
 // Moks Imports
 import { HEROES } from '../moks/heroes';
@@ -29,15 +28,25 @@ export class AuthApiService {
     return this.heroes;
   }
 
-  create(item: any, options?: any): Hero[] {
+  create(hero: Hero, options?: any): Hero[] {
+    hero.id = this.heroes.length + 1
+    this.heroes.push(hero)
     return this.heroes;
   }
 
-  read(id: string, options?: any): Hero[] {
+  read(id: number, options?: any): Hero {
+    return this.heroes[id - 1];
+  }
+
+  delete(hero: Hero, options?: any): Hero[] {
+    const index = this.heroes.indexOf(hero, 0);
+    if (index > -1) {
+      this.heroes.splice(index, 1);
+    }
     return this.heroes;
   }
 
-  delete(id: string, options?: any): Hero[] {
+  update(hero: Hero, options?: any): Hero[] {
     return this.heroes;
   }
 

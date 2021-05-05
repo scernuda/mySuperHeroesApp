@@ -43,37 +43,9 @@ $mat-reddia: (
   10: #FBE9E8,
   20: #F8D4D2,
   60: #E97F77,
-  100: #DA291C, //Rojo DIA / Error
-  // 50: #ffebee,
-  // 100: #ffcdd2,
-  // 200: #ef9a9a,
-  // 300: #e57373,
-  // 400: #ef5350,
-  // 500: #f44336,
-  // 600: #e53935,
-  // 700: #d32f2f,
-  // 800: #c62828,
-  // 900: #DA291C,
-  // A100: #ff8a80,
-  // A200: #ff5252,
-  // A400: #ff1744,
-  // A700: #d50000,
+  100: #DA291C, 
   contrast: (
     100: $light-primary-text,
-    // 50: $dark-primary-text,
-    // 100: $dark-primary-text,
-    // 200: $dark-primary-text,
-    // 300: $dark-primary-text,
-    // 400: $dark-primary-text,
-    // 500: $light-primary-text,
-    // 600: $light-primary-text,
-    // 700: $light-primary-text,
-    // 800: $light-primary-text,
-    // 900: $light-primary-text,
-    // A100: $dark-primary-text,
-    // A200: $light-primary-text,
-    // A400: $light-primary-text,
-    // A700: $light-primary-text,
   )
 );
 $mat-blackdia: (
@@ -115,27 +87,13 @@ $mat-linkdia: (
   )
 );
 
-// Plus imports for other components in your app.
-
-// Include the common styles for Angular Material. We include this here so that you only
-// have to load a single css file for Angular Material in your app.
-// Be sure that you only ever include this mixin once!
 @include mat-core();
 
-// Define the palettes for your theme using the Material Design palettes available in palette.scss
-// (imported above). For each palette, you can optionally specify a default, lighter, and darker
-// hue. Available color palettes: https://material.io/design/color/
-// $candy-app-primary: mat-palette($mat-red,900);
 $candy-app-primary: mat-palette($mat-blackdia,80);
-// $candy-app-secondary: mat-palette($mat-reddia,100);
 $candy-app-accent:  mat-palette($mat-pink, A200, A100, A400);
 
-
-// The warn palette is optional (defaults to red).
 $candy-app-warn:    mat-palette($mat-reddia,100);
 
-// Create the theme object. A theme consists of configurations for individual
-// theming systems such as `color` or `typography`.
 $candy-app-theme: mat-light-theme((
   color: (
     primary: $candy-app-primary,
@@ -144,9 +102,6 @@ $candy-app-theme: mat-light-theme((
   )
 ));
 
-// Include theme styles for core and each component used in your app.
-// Alternatively, you can import and @include the theme mixins for each component
-// that you are using.
 @include angular-material-theme($candy-app-theme);
 
 /************************************************************/
@@ -396,6 +351,9 @@ form{
 mat-paginator{
   border-radius: 0 0 7px 7px;
 }
+.mat-paginator-page-size-label{
+  width: 100px;
+}
 
 table {
   width: 100%;
@@ -405,6 +363,35 @@ table {
   .red{
     color: $rojo-100;
   }
+}
+
+label.mat-slide-toggle-label {
+  justify-content: center;
+}
+
+.mat-slide-toggle.mat-checked .mat-slide-toggle-thumb {
+  background-color: #00a700;
+}
+
+.mat-slide-toggle.mat-checked .mat-slide-toggle-bar {
+  background-color: rgba(64, 255, 105, 0.54);
+}
+
+.mat-slide-toggle-thumb {
+  box-shadow: 0px 2px 1px -1px rgba(0, 0, 0, 0.2),
+    0px 1px 1px 0px rgba(0, 0, 0, 0.14), 0px 1px 3px 0px rgba(0, 0, 0, 0.12);
+  background-color: red;
+}
+
+mat-card-actions.mat-card-actions {
+  margin-top: 34px;
+  margin-bottom: 0;
+  margin-left: 0;
+  margin-right: 0;
+}
+
+.mat-card-header-text {
+  margin: 0 16px 22px;
 }
 
 

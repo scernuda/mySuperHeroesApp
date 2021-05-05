@@ -8,13 +8,15 @@ import { MaterialModule } from './material/material.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FormModule } from './form/form.module';
 import { ApiModule } from './api/api.module';
+import { HeroesConfirmDialogModule } from './heroes-confirm-dialog/heroes-confirm-dialog.module';
 
 const BASE_MODULES = [
   ApiModule,
   FormModule,
   MaterialModule,
   FlexLayoutModule,
-  BrowserAnimationsModule
+  BrowserAnimationsModule,
+  HeroesConfirmDialogModule
 ];
 
 @NgModule({
