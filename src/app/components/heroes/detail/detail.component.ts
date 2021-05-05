@@ -1,6 +1,6 @@
 // Core Imports.
 import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
-import { formatDate } from '@angular/common' 
+import { formatDate } from '@angular/common'
 
 // Router Imports.
 import { ActivatedRoute, Router } from '@angular/router';
@@ -12,7 +12,7 @@ import { Hero } from '../../../base/types/hero';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 // Mat MatSnackBar.
-import {MatSnackBar} from '@angular/material/snack-bar';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 // Services.
 import { DetailService } from './service/detail.service';
@@ -162,24 +162,17 @@ export class DetailComponent implements OnInit {
  */
   navigateToHeroes() {
     this.router.navigate(['heroes/list']);
-    // If not new,edit hero type view.
-    if (this.param != 'new') {
-      // call notify service
-      console.log('edicion con exito')
-    } else {
-      // call notify service
-      console.log('creacion con exito')
-    }
   }
+
   /**
-     * populateHeroRequest.
-     *
-     * Method to populate hero request before send to service.
-     *
-     * @since 1.0.0
-     * @access public
-     * @return {Hero} hero object to return.
-     */
+ * populateHeroRequest.
+ *
+ * Method to populate hero request before send to service.
+ *
+ * @since 1.0.0
+ * @access public
+ * @return {Hero} hero object to return.
+ */
   populateHeroRequest() {
     // Initialice hero object
     const hero: Hero = new Hero();
@@ -189,7 +182,6 @@ export class DetailComponent implements OnInit {
       hero.id = this.formHero.controls.id.value;
     }
 
-    // Check form values.
     if (this.formHero.controls.id.value) {
       hero.id = this.formHero.controls.id.value;
     }
@@ -207,7 +199,7 @@ export class DetailComponent implements OnInit {
     }
 
     if (this.formHero.controls.birthDate.value) {
-      hero.birthDate = this.formHero.controls.birthDate.value ;
+      hero.birthDate = this.formHero.controls.birthDate.value;
     }
 
     if (this.formHero.controls.race.value) {

@@ -5,8 +5,6 @@ import { BrowserModule } from '@angular/platform-browser';
 // Specific Components Imports
 import { ComponentsComponent } from './components.component';
 
-// Commons Components Imports
-
 // Modules Imports
 import { CommonsModule } from './commons/commons.module';
 import { HeroesModule } from './heroes/heroes.module';

@@ -1,5 +1,8 @@
-// loader-interceptor.service.ts
+// Core Imports.
 import { Injectable } from '@angular/core';
+import { Observable } from 'rxjs';
+
+// Http Imports.
 import {
   HttpResponse,
   HttpRequest,
@@ -7,15 +10,29 @@ import {
   HttpEvent,
   HttpInterceptor
 } from '@angular/common/http';
-import { Observable } from 'rxjs';
+
+// Service Imports.
 import { LoaderService } from '../service/loader.service';
 
 @Injectable()
 export class LoaderInterceptor implements HttpInterceptor {
+
+  // Array of request
   private requests: HttpRequest<any>[] = [];
 
   constructor(private loaderService: LoaderService) { }
 
+  /**
+ * removeRequest.
+ *
+ * Method to remove a request.
+ *
+ * @since 1.0.0
+ * @access public
+ *
+ * @param {HttpRequest} req  request.
+ *
+ */
   removeRequest(req: HttpRequest<any>) {
     const i = this.requests.indexOf(req);
     if (i >= 0) {
@@ -24,6 +41,20 @@ export class LoaderInterceptor implements HttpInterceptor {
     this.loaderService.isLoading.next(this.requests.length > 0);
   }
 
+
+/**
+* intercept.
+*
+* Method to remove a request.
+*
+* @since 1.0.0
+* @access public
+*
+* @param {HttpRequest} req  request.
+* @param {HttpHandler} next  HttpHandler.
+*
+*@param {HttpEvent} Observable 
+*/
   intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
 
     this.requests.push(req);

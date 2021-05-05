@@ -1,5 +1,7 @@
+// Type Import.
 import { Hero } from '../types/hero';
 
+// Mock of 9 heroes.
 export const HEROES : Hero[] = [
   {
     "id": 1,

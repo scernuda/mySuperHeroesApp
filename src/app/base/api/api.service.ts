@@ -1,4 +1,7 @@
+// Core imports.
 import { Injectable } from '@angular/core';
+
+// Service imports.
 import { AuthApiService } from './auth-api.service';
 
 @Injectable({

@@ -5,7 +5,6 @@ import { CommonModule } from '@angular/common';
 // Flex Layout Imports
 import { FlexLayoutModule as Flex } from '@angular/flex-layout';
 
-
 @NgModule({
   declarations: [],
   imports: [

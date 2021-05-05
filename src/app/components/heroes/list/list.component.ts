@@ -11,7 +11,7 @@ import { MatPaginator } from '@angular/material/paginator';
 import { MatDialog } from '@angular/material/dialog';
 
 // Mat MatSnackBar.
-import {MatSnackBar} from '@angular/material/snack-bar';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 // Types import.
 import { Hero } from '../../../base/types/hero';
@@ -43,16 +43,35 @@ export class ListComponent {
 
 
   constructor(private router: Router, private listService: ListService, private dialog: MatDialog, private snackBar: MatSnackBar) {
-    // Call the service to load promotions table datasource.
-    this.heroes = this.listService.getHeroes();
+    // Call the service to load heroes table datasource.
+    this.heroes = this.listService.list();
     this.dataSource = new MatTableDataSource(this.heroes);
   }
 
+  /**
+   * ngAfterViewInit.
+   *
+   * Method to Init mat paginator and sort.
+   *
+   * @since 1.0.0
+   * @access public
+   *
+   */
   ngAfterViewInit() {
     this.dataSource.paginator = this.paginator;
     this.dataSource.sort = this.sort;
   }
 
+  /**
+   * applyFilter.
+   *
+   * Method to filtered heroes table datasource.
+   *
+   * @since 1.0.0
+   * @access public
+   *
+   * @param {Event} event  Event on filter imput.
+   */
   applyFilter(event: Event) {
     const filterValue = (event.target as HTMLInputElement).value;
 
@@ -64,7 +83,7 @@ export class ListComponent {
     }
   }
 
-   /**
+  /**
   * simulateLoader.
   *
   * Method send an http request to simulate loader.
@@ -72,7 +91,7 @@ export class ListComponent {
   * @since 1.0.0
   * @access public
   */
-  simulateLoader(){
+  simulateLoader() {
     this.listService.simulateLoader();
   }
 
@@ -138,16 +157,16 @@ export class ListComponent {
     this.dataSource = new MatTableDataSource(this.heroes);
   }
 
-/**
-* editHero.
-*
-* Method go to edit hero view.
-*
-* @since 1.0.0
-* @access public
-*
-* @param {number} id  Code of the hero to edit.
-*/
+  /**
+  * editHero.
+  *
+  * Method go to edit hero view.
+  *
+  * @since 1.0.0
+  * @access public
+  *
+  * @param {number} id  Code of the hero to edit.
+  */
   editHero(id: number) {
     this.router.navigateByUrl('/heroes/detail/' + id);
   }

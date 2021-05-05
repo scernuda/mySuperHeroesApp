@@ -1,5 +1,7 @@
-// loader.component.ts
-import { Component, OnInit } from '@angular/core';
+// Core imports
+import { Component } from '@angular/core';
+
+// Service imports
 import { LoaderService } from './service/loader.service';
 
 @Component({
@@ -8,9 +10,10 @@ import { LoaderService } from './service/loader.service';
   styleUrls: ['./loader.component.scss'],
   providers: []
 })
-export class LoaderComponent implements OnInit {
+export class LoaderComponent  {
 
-  loading: boolean;
+  // Var to check if is loading.
+  loading: boolean; 
 
   constructor(private loaderService: LoaderService) {
 
@@ -19,7 +22,4 @@ export class LoaderComponent implements OnInit {
     });
 
   }
-  ngOnInit() {
-  }
-
 }

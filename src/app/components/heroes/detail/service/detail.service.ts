@@ -1,5 +1,6 @@
+// Core imports
 import { Injectable } from '@angular/core';
-import { environment } from 'src/environments/environment';
+
 // Services.
 import { ApiService } from 'src/app/base/api/api.service';
 

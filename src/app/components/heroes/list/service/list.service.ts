@@ -19,30 +19,16 @@ export class ListService extends ApiService {
   constructor(private http: HttpClient) {
     super();
   }
-
+  
   /**
-   * getHeroes.
+   * simulateLoader.
    *
-   * Method for map the response of the heroes collection.
+   * Method for simulateLoader.
    *
    * @since 1.0.0
    * @access public
    *
-   * @return {response} Return the mapping response of the heroes collection.
    */
-  getHeroes(params?: any): Hero[] {
-    return super.list(params);
-  }
-
-  /**
- * simulateLoader.
- *
- * Method for simulateLoader.
- *
- * @since 1.0.0
- * @access public
- *
- */
   simulateLoader() {
     this.http.get<any>('https://api.npms.io/v2/search?q=scope:angular').subscribe(data => {
       console.log(data)

@@ -1,4 +1,7 @@
+// Core Imports.
 import { Component, Inject, OnInit } from '@angular/core';
+
+// Mterial dialog Import.
 import { MAT_DIALOG_DATA } from '@angular/material/dialog';
 
 @Component({
@@ -6,7 +9,7 @@ import { MAT_DIALOG_DATA } from '@angular/material/dialog';
   templateUrl: './heroes-confirm-dialog.component.html',
   styleUrls: ['./heroes-confirm-dialog.component.scss']
 })
-export class HeroesConfirmDialogComponent implements OnInit {
+export class HeroesConfirmDialogComponent{
 
   constructor(
     @Inject(MAT_DIALOG_DATA) public data: {
@@ -17,8 +20,5 @@ export class HeroesConfirmDialogComponent implements OnInit {
       rejectButton: string
     }
   ) { }
-
-  ngOnInit(): void {
-  }
 
 }
